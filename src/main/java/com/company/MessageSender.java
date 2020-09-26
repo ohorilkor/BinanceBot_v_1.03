@@ -2,7 +2,6 @@ package com.company;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import sun.plugin2.message.Message;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -22,7 +21,7 @@ public class MessageSender implements Runnable {
 
     @Override
     public void run() {
-        /*timer.scheduleAtFixedRate(new TimerTask() {
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 text_setted = Volume_calculation.Volume_cal(message);
@@ -31,7 +30,7 @@ public class MessageSender implements Runnable {
                     text_setted = false;
                 }
             }
-        }, 0, 1*20);*/
+        }, 0, 1*20);
     }
 
     private void send() {
