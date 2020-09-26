@@ -38,7 +38,7 @@ public class Volume_calculation {
         System.out.println("===================================================================");
         System.out.println("===================================================================");
 */
-        if(true){
+        if((top_proz * 100) > 10.0){
             message.setText("Top Crypto = " + top_elem.getSymbol() + "\nVolume change = " + top_proz * 100 + "%\n"
                             + "Old Price = "+ top_candlestick.get(0).getClose() + "\nCurrent Price = " + top_elem.getLastPrice());
             return true;
