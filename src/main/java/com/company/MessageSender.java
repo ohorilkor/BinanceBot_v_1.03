@@ -22,7 +22,7 @@ public class MessageSender implements Runnable {
 
     @Override
     public void run() {
-        timer.scheduleAtFixedRate(new TimerTask() {
+        /*timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 text_setted = Volume_calculation.Volume_cal(message);
@@ -31,7 +31,7 @@ public class MessageSender implements Runnable {
                     text_setted = false;
                 }
             }
-        }, 0, 1*20);
+        }, 0, 1*20);*/
     }
 
     private void send() {
