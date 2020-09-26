@@ -31,7 +31,7 @@ public class Bot extends TelegramLongPollingBot {
             chatIds.add(update.getMessage().getChat().getId());
         }
         message.setChatId(update.getMessage().getChatId());
-        message.setText("Hello. This is start message");
+        message.setText("Welcome! You are logged in. Wait for notifications");
         try {
             execute(message);
         } catch (TelegramApiException e) {
