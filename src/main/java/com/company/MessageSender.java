@@ -14,6 +14,7 @@ public class MessageSender implements Runnable {
     public Timer timer = new Timer();
     boolean text_setted = false;
     public SendMessage message = new SendMessage();
+    int chack = 0;
 
     public MessageSender(Bot bot) {
         this.bot = bot;
@@ -25,9 +26,14 @@ public class MessageSender implements Runnable {
             @Override
             public void run() {
                 text_setted = Volume_calculation.Volume_cal(message);
+                chack++;
                 if(text_setted){
                     send();
                     text_setted = false;
+                }if(chack>120){
+                    message.setText("I am allive");
+                    send();
+                    chack = 0;
                 }
             }
         }, 0, 1*20);
