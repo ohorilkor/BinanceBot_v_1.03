@@ -30,14 +30,14 @@ public class Volume_calculation {
                     top_elem = all24Statistics.get(i);
                     top_candlestick = candlesticks;
                 }
-                System.out.println(all24Statistics.get(i).getSymbol() + " current Volume = " + (volDifference) * 100 + "%\n" + "Last Price = " + all24Statistics.get(i).getLastPrice() + "\nOld Price = " + candlesticks.get(0).getClose());
+              //  System.out.println(all24Statistics.get(i).getSymbol() + " current Volume = " + (volDifference) * 100 + "%\n" + "Last Price = " + all24Statistics.get(i).getLastPrice() + "\nOld Price = " + candlesticks.get(0).getClose());
             }
         }
-       /* System.out.println("===================================================================");
+       System.out.println("===================================================================");
         System.out.println(top_elem.getSymbol() + " Top Volume = " + top_proz * 100 + "%");
         System.out.println("===================================================================");
         System.out.println("===================================================================");
-*/
+
         if((top_proz * 100) > 10.0){
             message.setText("Top Crypto = " + top_elem.getSymbol() + "\nVolume change = " + top_proz * 100 + "%\n"
                             + "Old Price = "+ top_candlestick.get(0).getClose() + "\nCurrent Price = " + top_elem.getLastPrice());

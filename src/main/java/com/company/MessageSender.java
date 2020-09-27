@@ -4,14 +4,11 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MessageSender implements Runnable {
 
 
     private Bot bot;
-    public Timer timer = new Timer();
     boolean text_setted = false;
     public SendMessage message = new SendMessage();
     int chack = 0;
@@ -22,21 +19,19 @@ public class MessageSender implements Runnable {
 
     @Override
     public void run() {
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                text_setted = Volume_calculation.Volume_cal(message);
-                chack++;
-                if(text_setted){
-                    send();
-                    text_setted = false;
-                }if(chack>120){
-                    message.setText("I am allive");
-                    send();
-                    chack = 0;
-                }
+        while (true) {
+            text_setted = Volume_calculation.Volume_cal(message);
+            chack++;
+            if (text_setted) {
+                send();
+                text_setted = false;
             }
-        }, 0, 1*20);
+            if (chack > 120) {
+                message.setText("I am allive");
+                send();
+                chack = 0;
+            }
+        }
     }
 
     private void send() {
