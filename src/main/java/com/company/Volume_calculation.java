@@ -22,7 +22,7 @@ public class Volume_calculation {
         double top_proz = 0;
 
         for (int i = 0; i < all24Statistics.size(); i++) {
-            if (all24Statistics.get(i).getSymbol().endsWith("USDT")) {
+            if (all24Statistics.get(i).getSymbol().endsWith("BTC")) {
                 candlesticks = client.getCandlestickBars(all24Statistics.get(i).getSymbol(), CandlestickInterval.ONE_MINUTE, 2, (Long) null, (Long) null);
                 double volDifference = Double.parseDouble(candlesticks.get(0).getVolume()) / Double.parseDouble(all24Statistics.get(i).getVolume());
                 if (top_proz < volDifference && !Double.isInfinite(volDifference) && Double.parseDouble(all24Statistics.get(i).getLastPrice()) > Double.parseDouble(candlesticks.get(0).getClose())) {
