@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
-        Bot binanceBot = new Bot("Kravziv1CryptoBot","1396206280:AAGD-fflkdf43DKrktfwN90aYEvTY4OeirA");
+        Bot binanceBot = new Bot("Kravziv_Crypto_v1_02_bot","1377586865:AAFBrgy15GhYqweIIKHWhF_tkiSWe5aZ9_o");
 
         MessageSender messageSender = new MessageSender(binanceBot);
 
