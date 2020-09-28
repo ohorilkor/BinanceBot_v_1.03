@@ -26,7 +26,7 @@ public class MessageSender implements Runnable {
                 send();
                 text_setted = false;
             }
-            if (chack > 120) {
+            if (chack > 45) {
                 message.setText("I am allive");
                 send();
                 chack = 0;
