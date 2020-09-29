@@ -22,15 +22,17 @@ public class Volume_calculation {
         double top_proz = 0;
 
         for (int i = 0; i < all24Statistics.size(); i++) {
-            if (all24Statistics.get(i).getSymbol().endsWith("BTC")) {
+            if (all24Statistics.get(i).getSymbol().endsWith("USDT")) {
                 candlesticks = client.getCandlestickBars(all24Statistics.get(i).getSymbol(), CandlestickInterval.ONE_MINUTE, 2, (Long) null, (Long) null);
+                if(candlesticks.size()>0){
                 double volDifference = Double.parseDouble(candlesticks.get(0).getVolume()) / Double.parseDouble(all24Statistics.get(i).getVolume());
                 if (top_proz < volDifference && !Double.isInfinite(volDifference) && Double.parseDouble(all24Statistics.get(i).getLastPrice()) > Double.parseDouble(candlesticks.get(0).getClose())) {
                     top_proz = volDifference;
                     top_elem = all24Statistics.get(i);
                     top_candlestick = candlesticks;
                 }
-              //  System.out.println(all24Statistics.get(i).getSymbol() + " current Volume = " + (volDifference) * 100 + "%\n" + "Last Price = " + all24Statistics.get(i).getLastPrice() + "\nOld Price = " + candlesticks.get(0).getClose());
+              System.out.println(all24Statistics.get(i).getSymbol() + " current Volume = " + (volDifference) * 100 + "%\n" + "Last Price = " + all24Statistics.get(i).getLastPrice() + "\nOld Price = " + candlesticks.get(0).getClose());
+                }
             }
         }
        System.out.println("===================================================================");
