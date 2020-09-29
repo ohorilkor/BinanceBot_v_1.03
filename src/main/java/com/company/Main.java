@@ -17,6 +17,11 @@ public class Main {
         sender.setDaemon(true);
         sender.setName("MsgSender");
         sender.setPriority(PRIORITY_FOR_SENDER);
-        sender.start();
+
+        while (true){
+            if(!sender.isAlive()){
+                sender.start();
+            }
+        }
     }
 }
