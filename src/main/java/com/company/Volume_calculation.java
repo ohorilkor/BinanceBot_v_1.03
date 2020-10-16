@@ -20,13 +20,15 @@ public class Volume_calculation {
         TickerStatistics top_elem = new TickerStatistics();
 
         double top_proz = 0;
+        double volume = 0;
 
         for (int i = 0; i < all24Statistics.size(); i++) {
-            if (all24Statistics.get(i).getSymbol().endsWith("USDT")) {
+            volume = Double.parseDouble(all24Statistics.get(i).getVolume())*Double.parseDouble(all24Statistics.get(i).getWeightedAvgPrice());
+            if (all24Statistics.get(i).getSymbol().endsWith("USDT") && volume>100000){
                 candlesticks = client.getCandlestickBars(all24Statistics.get(i).getSymbol(), CandlestickInterval.ONE_MINUTE, 2, (Long) null, (Long) null);
                 if(candlesticks.size()>0){
                 double volDifference = Double.parseDouble(candlesticks.get(0).getVolume()) / Double.parseDouble(all24Statistics.get(i).getVolume());
-                if (top_proz < volDifference && !Double.isInfinite(volDifference) && Double.parseDouble(all24Statistics.get(i).getLastPrice()) > Double.parseDouble(candlesticks.get(0).getClose())) {
+                if (top_proz < volDifference && !Double.isInfinite(volDifference) /*&& Double.parseDouble(all24Statistics.get(i).getLastPrice()) > Double.parseDouble(candlesticks.get(0).getClose())  ----- ціна має зростати */) {
                     top_proz = volDifference;
                     top_elem = all24Statistics.get(i);
                     top_candlestick = candlesticks;

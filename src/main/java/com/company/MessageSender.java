@@ -35,7 +35,7 @@ public class MessageSender implements Runnable {
         }
     }
 
-    private void send() {
+    public void send() {
         ArrayList<Long> chatIds = bot.getChatIds();
         for(int i =0; i<chatIds.size(); i++){
             message.setChatId(chatIds.get(i));
